@@ -7,12 +7,12 @@ const Logo = (props) => {
   return (
     <div className="text-gray-200 text-xl flex justify-center">
       <Tilt 
-        className="h-auto p-5 text-blue-800"
+        className="flex justify-center text-blue-800"
         tiltReverse={true}
+        reset={false}
+        trackOnWindow={true}
         >
-        <div className="bg-blue-300 m-36">
           <img className="h-40" src={faceLogo} alt="Face Detection"></img>
-        </div>  
       </Tilt>
     </div>
   )
