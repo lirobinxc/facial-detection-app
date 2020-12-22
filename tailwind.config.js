@@ -6,6 +6,10 @@ module.exports = {
       main: ['Roboto', 'sans-serif'],
     },
     extend: {
+      zIndex: {
+        '-10': '-10',
+        '-20': '-20',
+       }
     },
   },
   variants: {
