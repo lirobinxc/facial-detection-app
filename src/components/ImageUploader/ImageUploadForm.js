@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageUploadForm = ({ inputChange, onButtonClick }) => {
+const ImageUploadForm = ({ inputChange, onButtonClick, onChooseForMeClick }) => {
   return (
     <div className="text-xl text-gray-300 text-center">
       <p className="mt-4">
@@ -10,7 +10,7 @@ const ImageUploadForm = ({ inputChange, onButtonClick }) => {
         #233
       </p>
       <p className="mt-7 mb-4">
-        Paste an image URL
+        Paste an image URL or <span className="underline cursor-pointer" onClick={onChooseForMeClick}>try a random image</span>
       </p>
       <div className="flex justify-center">
         <input 

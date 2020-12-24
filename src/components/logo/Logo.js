@@ -1,18 +1,21 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
-import faceLogo from './face-logo.svg';
+import FaceBoundingBox from './FaceBoundingBox';
 
-const Logo = (props) => {
+const Logo = ({imageURL, arr}) => {
 
   return (
-    <div className="text-gray-200 text-xl flex justify-center">
+    <div className="text-gray-200 text-xl flex justify-center ">
       <Tilt 
-        className="flex justify-center text-blue-800"
+        className="relative"
         tiltReverse={true}
         reset={false}
         trackOnWindow={true}
         >
-          <img className="h-40" src={faceLogo} alt="Face Detection"></img>
+          <div className="relative">
+          <img id="logoImage" className="h-60 w-auto" src={imageURL} alt="Face Detection" />
+          <FaceBoundingBox arr={arr} url={imageURL}/>
+          </div>
       </Tilt>
     </div>
   )

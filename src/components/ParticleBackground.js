@@ -16,7 +16,7 @@ export default function ParticleBackground() {
               },
               "line_linked": {
                   "enable": true,
-                  "opacity": 0.02
+                  "opacity": 0.1
               },
               "move": {
                   "direction": "down",
@@ -29,7 +29,7 @@ export default function ParticleBackground() {
                   "anim": {
                       "enable": true,
                       "speed": 1,
-                      "opacity_min": 0.05
+                      "opacity_min": 0.2
                   }
               }
           },
