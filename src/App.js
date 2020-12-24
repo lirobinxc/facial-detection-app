@@ -63,6 +63,7 @@ export default function App() {
     </div>
   )
 
+  // Loading spinner animation
   let spinner = (
     <div>
       <div className="relative flex justify-center">
