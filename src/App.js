@@ -16,9 +16,10 @@ let facesArr = [];
 export default function App() {
   // const [searchInput, setSearchInput] = useState('https://i.imgur.com/hES7D98.jpg');
   const [logo, setLogo] = useState(faceLogo);
-  const [loading, setLoading] = useState(false)
-  const [conceptsFound, setConceptsFound] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [conceptsFound, setConceptsFound] = useState(false);
   const [conceptsArr, setConceptsArr] = useState(['⠀']);
+  const [peopleCount, setPeopleCount] = useState(0);
 
   // Check if image has loaded
   const getImageDimensions = () => {
@@ -35,6 +36,7 @@ export default function App() {
     for (let i of arr) {
       facesArr.push(i.region_info.bounding_box)
     }
+    setPeopleCount(facesArr.length)
     return facesArr
   }
 
@@ -42,18 +44,6 @@ export default function App() {
   const app = new Clarifai.App({
     apiKey: '2e41b3c34c924fb4af0fef3e5a6e945d'
   });
-
-  let aiConcepts = (
-    <motion.div
-      animate={{ 
-        opacity: 1
-      }}
-      transition={{ duration: 1}}
-      className="flex justify-center mt-4"
-    >  
-      <AIConcepts conceptsArr={conceptsArr}/>
-    </motion.div>
-  )
 
   // if Loading = false
   let loadedImage = (
@@ -69,23 +59,23 @@ export default function App() {
       >  
         <Logo imageURL={logo} arr={facesArr}/>
         </motion.div>
-        {aiConcepts}
+        <AIConcepts conceptsArr={conceptsArr} conceptsFontColor={{color: "#FCD34D"}}/>
     </div>
   )
 
   let spinner = (
     <div>
-        <div className="relative flex justify-center">
+      <div className="relative flex justify-center">
         <Loader
           type="ThreeDots"
           color="#FCD34D"
-          height={184}
+          height={240}
           width={100}
           timeout={30000}
         />
       </div>
-      <div className="h-4" />
-</div>
+      <AIConcepts conceptsArr={conceptsArr} conceptsFontColor={{color: "rgba(255, 0, 0, 0)"}}/>
+    </div>
   )
   
   let currentLogo = loading ? spinner : loadedImage;
@@ -101,7 +91,8 @@ export default function App() {
     'https://leadingwithtrust.com/wp-content/uploads/2015/08/peer-to-boss.jpg',
     'https://api.time.com/wp-content/uploads/2014/05/166259035.jpg?w=600&quality=85',
     'https://www.cbc.ca/kidscbc2/content/the_feed/population_group.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxxNMb2XoljOs2TyGAzVVi8Snfgky68CU39g&usqp=CAU'
+    'https://www.citynews1130.com/wp-content/blogs.dir/sites/9/2019/06/chy11403327-1024x683.jpg',
+    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/06/16/16/festival.jpg?width=982&height=726'
   ]
   
   const onRandomClick = async () => {
@@ -170,7 +161,7 @@ export default function App() {
       <div className="h-screen grid grid-cols-1 place-content-center pb-32">
         <div className="relative mt-12 font-custom">
           {loading ? spinner : currentLogo}
-          <ImageUploadForm inputChange={onInputChange} onButtonClick={onButtonClick} onChooseForMeClick={onRandomClick}/>
+          <ImageUploadForm inputChange={onInputChange} onButtonClick={onButtonClick} onChooseForMeClick={onRandomClick} peopleCount={peopleCount}/>
         </div>
       </div>
     </div>

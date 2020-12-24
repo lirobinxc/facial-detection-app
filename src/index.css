@@ -11,7 +11,6 @@ html {
 
 .boundingBox {
   position: absolute;
-  border: 3px solid rgb(102, 243, 102);
   box-shadow: 0 0 0 3px #3a8ae6 inset;
   display: flex;
   flex-wrap: wrap;

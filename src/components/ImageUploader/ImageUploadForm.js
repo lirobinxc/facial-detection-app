@@ -1,13 +1,13 @@
 import React from 'react';
 
-const ImageUploadForm = ({ inputChange, onButtonClick, onChooseForMeClick }) => {
+const ImageUploadForm = ({ inputChange, onButtonClick, onChooseForMeClick, peopleCount }) => {
   return (
     <div className="text-xl text-gray-300 text-center">
       <p className="mt-4">
-        Robin, your current rank is:
+        Number of People Detected:
       </p>
       <p className="mt-2 text-5xl text-yellow-300">
-        #233
+        {peopleCount}
       </p>
       <p className="mt-7 mb-4">
         Paste an image URL or <span className="underline cursor-pointer" onClick={onChooseForMeClick}>try a random image</span>

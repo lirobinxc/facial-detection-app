@@ -24,21 +24,22 @@ export default function FaceBoundingBox({url, arr}) {
       boundingBoxArr.push({
         top: `${i.top_row * 100}%`,
         left: `${i.left_col * 100}%`,
-        right: `${i.right_col * 100}%`,
-        bottom: `${i.bottom_row * 100}%`
+        right: `${(1 - i.right_col) * 100}%`,
+        bottom: `${(1 - i.bottom_row) * 100}%`
       })
     }
     
-    console.log(`📢 ~ calculateBoundingBox ~ boundingBoxArr`, boundingBoxArr);
+    console.log(`📢 ~ calculateBoundingBox ~ boundingBoxArr`, boundingBoxArr[0]);
   }
   calculateBoundingBox();
 
 
 
-  let display = boundingBoxArr.map((ele, index) => (
-    <div key={index} className="boundingBox" style={{border: "5px solid white"}}>
-    </div>
-  ))
+  let display = boundingBoxArr.map((ele, index) => {
+    console.log('e',ele)
+    return (<div key={index} className="boundingBox z-10" style={ele}>
+    </div>)
+  })
 
   return display;
 }
