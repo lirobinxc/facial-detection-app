@@ -1,20 +1,22 @@
-# AI Face Dectection
+# AI Face Detection
 
-### Made with React, TailwindCSS, Node.js, Clarifai AI
+#### Made with React, Node.js, Tailwind CSS, Clarifai AI
 
 ## Usage
 
-**Input** 
+**Input**
+
 An image URL
 
 **Output**
 1) Detects faces using Clarifai AI and processes data to apply CSS bounding box around each face in the image
-  - uses map function to dynamically draw bounding box on all detected faces
+  	- Dev note: Uses map function to dynamically draw bounding box on all detected faces
 2) Counts total # of people
-  - the figure is more accurate the higher resolution the image
+ 	- Dev note: the figure is more accurate the higher resolution the image
 3) Provides AI-analysis of image context.
+	- Dev note: Limited to 5 contextual terms to keep away information clutter.
 
 ## Future feature ideas
-- extract detected faces using image manipulation
-- allow user to choose specific gender or race to search for in a photo
-- allow user to directly upload own images
+- Extract detected faces using image manipulation
+- Allow user to choose specific gender or race to search for in a photo
+- Allow user to directly upload own images
