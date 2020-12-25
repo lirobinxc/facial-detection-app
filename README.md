@@ -1,4 +1,4 @@
-# AI Face Detection
+# AI Face Detection (aka Face Finder 9000)
 
 #### Made with React, Node.js, Tailwind CSS, Clarifai AI
 
