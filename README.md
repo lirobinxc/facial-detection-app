@@ -1,6 +1,6 @@
 # AI Face Detection (aka Face Finder 9000)
 
-[### Try me out](https://lirobinxc.github.io/facial-detection-app/)
+## [Try me out](https://lirobinxc.github.io/facial-detection-app/)
 
 #### Made with React, Node.js, Tailwind CSS, Clarifai AI
 
