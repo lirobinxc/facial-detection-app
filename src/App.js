@@ -17,18 +17,8 @@ export default function App() {
   // const [searchInput, setSearchInput] = useState('https://i.imgur.com/hES7D98.jpg');
   const [logo, setLogo] = useState(faceLogo);
   const [loading, setLoading] = useState(false);
-  const [conceptsFound, setConceptsFound] = useState(false);
   const [conceptsArr, setConceptsArr] = useState(['⠀']);
   const [peopleCount, setPeopleCount] = useState(0);
-
-  // Check if image has loaded
-  const getImageDimensions = () => {
-    let img = new Image();
-    img.onload = function() {
-      alert(this.width + 'x' + this.height);
-    }
-    img.src = searchedURL;
-  }
 
   // Push processed faceData into faceArr
   function pushFaceDataIntoArr(arr) {
@@ -63,7 +53,7 @@ export default function App() {
     </div>
   )
 
-  // Loading spinner animation
+  // Loading spinner 
   let spinner = (
     <div>
       <div className="relative flex justify-center">
@@ -84,7 +74,6 @@ export default function App() {
   // When user types in something
   const onInputChange = (event) => {
     searchedURL = event.target.value;
-    console.log(event.target.value)
   }
 
   // When user clicks 'Try a Random Image'
@@ -98,8 +87,6 @@ export default function App() {
   
   const onRandomClick = async () => {
     searchedURL = randomImages[randomCounter];
-    // console.log(`📢 ~ onRandomClick ~ SearchInput`, searchInput);
-    console.log(`📢 ~ App ~ randomCounter`, randomCounter);
     
     if (randomCounter >= randomImages.length) {
       randomCounter = 0;
@@ -107,7 +94,6 @@ export default function App() {
     } else {searchedURL = randomImages[randomCounter];}
     randomCounter++;
     await onButtonClick();
-    console.log(randomCounter)
   }
 
   // When user clicks Detect Faces
@@ -118,18 +104,15 @@ export default function App() {
     app.models.predict(Clarifai.FACE_DETECT_MODEL, searchedURL)
       .then(response => {
         const faceData = response['outputs'][0]['data']['regions'];
-        console.log('faceData', faceData);
         return faceData;
       })
       .then(faceData => {
         pushFaceDataIntoArr(faceData);
-        console.log('facesArr', facesArr);
       })
       .catch(err => setLogo(faceLogo))
       .then(() => app.models.predict(Clarifai.GENERAL_MODEL, searchedURL))
       .then(response => {
         const conceptsObj = response['outputs'][0]['data']['concepts'];
-        console.log('Concepts', conceptsObj)
         return conceptsObj;
       })
       .then(obj => {
@@ -143,12 +126,12 @@ export default function App() {
         return processedArr;
       })
       .then((arr) => {
-        setConceptsFound(true);
         setConceptsArr(arr)
       })
       .then(() => setLogo(searchedURL))
       .catch(err => {
         setLogo(faceLogo);
+        facesArr = [];
         setConceptsArr(['Could not load image, please try again.']);
       })
       .finally(() => setLoading(false))

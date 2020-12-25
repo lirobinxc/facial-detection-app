@@ -8,7 +8,7 @@ export default function ParticleBackground() {
         params={{
           "particles": {
               "number": {
-                  "value": 60,
+                  "value": 50,
                   "density": {
                       "enable": true,
                       "value_area": 1500
@@ -29,7 +29,7 @@ export default function ParticleBackground() {
                   "anim": {
                       "enable": true,
                       "speed": 1,
-                      "opacity_min": 0.2
+                      "opacity_min": 0.4
                   }
               }
           },
