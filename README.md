@@ -2,7 +2,7 @@
 
 ## [Try me out](https://lirobinxc.github.io/facial-detection-app/)
 
-#### Made with React, Node.js, Tailwind CSS, Clarifai AI
+#### Made with React, NodeJS, Tailwind CSS, Clarifai AI
 
 ## Usage
 
