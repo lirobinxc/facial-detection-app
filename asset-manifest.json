@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/facial-detection-app/static/css/main.47e17821.chunk.css",
-    "main.js": "/facial-detection-app/static/js/main.174d5f3b.chunk.js",
-    "main.js.map": "/facial-detection-app/static/js/main.174d5f3b.chunk.js.map",
+    "main.js": "/facial-detection-app/static/js/main.eaa4c696.chunk.js",
+    "main.js.map": "/facial-detection-app/static/js/main.eaa4c696.chunk.js.map",
     "runtime-main.js": "/facial-detection-app/static/js/runtime-main.afeaccaa.js",
     "runtime-main.js.map": "/facial-detection-app/static/js/runtime-main.afeaccaa.js.map",
     "static/js/2.1c9cf495.chunk.js": "/facial-detection-app/static/js/2.1c9cf495.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.afeaccaa.js",
     "static/js/2.1c9cf495.chunk.js",
     "static/css/main.47e17821.chunk.css",
-    "static/js/main.174d5f3b.chunk.js"
+    "static/js/main.eaa4c696.chunk.js"
   ]
 }
